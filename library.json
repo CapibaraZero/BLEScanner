@@ -1,0 +1,23 @@
+{
+    "name": "BLEScanner",
+    "keywords": "esp32, ble, nimble",
+    "description": "A simple BLE advertisement scanner for ESP32",
+    "authors":
+	{
+		"name": "Andreock",
+		"maintainer": true
+	},
+	"repository":
+    {
+        "type": "git",
+        "url": "https://github.com/CapibaraZero/BLEScanner"
+    },
+    "version": "1.0",
+    "frameworks": "arduino",
+    "dependencies":
+    {
+        "bblanchon/ArduinoJson": "^6.21.4",
+        "h2zero/NimBLE-Arduino": "^1.4.1",
+        "PosixSD": "https://github.com/CapibaraZero/PosixSD.git"
+    }
+}
