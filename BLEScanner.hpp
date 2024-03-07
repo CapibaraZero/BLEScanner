@@ -35,6 +35,7 @@ public:
     DynamicJsonDocument get_result() { return adv_device_callback->get_advertised_devices(); };
     void save_to_sd(FS sd, DynamicJsonDocument result);
     void restart_scan(int scan_time);
+    uint8_t get_scanned_devices() { return adv_device_callback->get_advertised_devices_num(); };
 };
 
 #endif

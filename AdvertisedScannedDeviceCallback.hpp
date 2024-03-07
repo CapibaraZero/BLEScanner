@@ -29,6 +29,7 @@ class AdvertisedScannedDeviceCallback : public NimBLEAdvertisedDeviceCallbacks
         advertised_devices.shrinkToFit();
         advertised_devices.garbageCollect();
     }
+    uint8_t devices = 0;
 public:
     DynamicJsonDocument get_advertised_devices() {
         shrink_result();
@@ -37,6 +38,7 @@ public:
     void begin() { 
         advertised_devices.clear();
     };
+    uint8_t get_advertised_devices_num() { return devices; };
 };
 
 #endif

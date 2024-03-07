@@ -22,6 +22,7 @@ void AdvertisedScannedDeviceCallback::onResult(NimBLEAdvertisedDevice* advertise
     DynamicJsonDocument advertisement_data(advertisedDevice->getAdvLength());
 
     Serial0.println("Device advertised! Writing to JSON");
+    devices++;
 
     ble_device["address"] = advertisedDevice->getAddress().toString();
     ble_device["payload"] = advertisedDevice->getPayload();
