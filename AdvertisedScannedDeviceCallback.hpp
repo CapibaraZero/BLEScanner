@@ -1,6 +1,6 @@
 /*
- * This file is part of the Capibara zero (https://github.com/CapibaraZero/fw or https://capibarazero.github.io/).
- * Copyright (c) 2023 Andrea Canale.
+ * This file is part of the Capibara zero (https://github.com/CapibaraZero/fw or
+ * https://capibarazero.github.io/). Copyright (c) 2023 Andrea Canale.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,27 +18,26 @@
 #ifndef ADVERTISED_SCANNED_DEVICE_CALLBACK_H
 #define ADVERTISED_SCANNED_DEVICE_CALLBACK_H
 
-#include "NimBLEDevice.h"
 #include "ArduinoJson.h"
+#include "NimBLEDevice.h"
 
-class AdvertisedScannedDeviceCallback : public NimBLEAdvertisedDeviceCallbacks
-{
-    void onResult(NimBLEAdvertisedDevice* advertisedDevice);
-    DynamicJsonDocument advertised_devices = DynamicJsonDocument(ESP.getMaxAllocHeap()); // TODO: Set this dynamically
-    void shrink_result() { 
-        advertised_devices.shrinkToFit();
-        advertised_devices.garbageCollect();
-    }
-    uint8_t devices = 0;
-public:
-    DynamicJsonDocument get_advertised_devices() {
-        shrink_result();
-        return advertised_devices;
-    }
-    void begin() { 
-        advertised_devices.clear();
-    };
-    uint8_t get_advertised_devices_num() { return devices; };
+class AdvertisedScannedDeviceCallback : public NimBLEAdvertisedDeviceCallbacks {
+  void onResult(NimBLEAdvertisedDevice *advertisedDevice);
+  DynamicJsonDocument advertised_devices =
+      DynamicJsonDocument(ESP.getMaxAllocHeap());  // TODO: Set this dynamically
+  void shrink_result() {
+    advertised_devices.shrinkToFit();
+    advertised_devices.garbageCollect();
+  }
+  uint8_t devices = 0;
+
+ public:
+  DynamicJsonDocument get_advertised_devices() {
+    shrink_result();
+    return advertised_devices;
+  }
+  void begin() { advertised_devices.clear(); };
+  uint8_t get_advertised_devices_num() { return devices; };
 };
 
 #endif
