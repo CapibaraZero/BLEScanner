@@ -1,6 +1,6 @@
 /*
  * This file is part of the Capibara zero (https://github.com/CapibaraZero/fw or
- * https://capibarazero.github.io/). Copyright (c) 2023 Andrea Canale.
+ * https://capibarazero.github.io/). Copyright (c) 2024 Andrea Canale.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,8 @@
 #endif
 void AdvertisedScannedDeviceCallback::onResult(
     NimBLEAdvertisedDevice *advertisedDevice) {
-  DynamicJsonDocument ble_device((advertisedDevice->getPayloadLength() * 2) +
-                                 advertisedDevice->getAdvLength() + 200);
-  DynamicJsonDocument advertisement_data(advertisedDevice->getAdvLength());
+  JsonDocument ble_device;
+  JsonDocument advertisement_data;
 
   SERIAL_DEVICE.println("Device advertised! Writing to JSON");
   devices++;
