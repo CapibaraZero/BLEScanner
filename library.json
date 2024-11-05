@@ -16,7 +16,7 @@
     "frameworks": "arduino",
     "dependencies":
     {
-        "bblanchon/ArduinoJson": "^6.21.4",
+        "bblanchon/ArduinoJson": "^7.2.0",
         "h2zero/NimBLE-Arduino": "^1.4.1",
         "PosixSD": "https://github.com/CapibaraZero/PosixSD.git"
     }
