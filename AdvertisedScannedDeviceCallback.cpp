@@ -17,10 +17,10 @@
 
 #include "AdvertisedScannedDeviceCallback.hpp"
 
-#ifdef ARDUINO_NANO_ESP32
-#define SERIAL_DEVICE Serial
-#else
+#ifdef ESP32S3_DEVKITC_BOARD
 #define SERIAL_DEVICE Serial0
+#else
+#define SERIAL_DEVICE Serial
 #endif
 void AdvertisedScannedDeviceCallback::onResult(
     NimBLEAdvertisedDevice *advertisedDevice) {
